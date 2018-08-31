@@ -9,6 +9,8 @@
 
 解决这个问题也有多种办法，如采用Docker进行分发，采用virtualenv等。但都不怎么直接或者轻量化。
 
+关于Python打包部署的话题，这篇[The Many Layers of Packaging](http://sedimental.org/the_packaging_gradient.html)讲的非常好，很值得一读（可惜谷歌上都很难搜索到这篇文章）。
+
 最终我们采用了[pex](https://github.com/pantsbuild/pex)来解决Python应用的分发问题。pex最终会把所有的依赖和你自己的代码打包成一个`.pex`为后缀的可执行文件。在运行环境下直接执行该文件即可。需要注意的是，pex不能用于Windows，这个确实比较遗憾。
 
 # 生成PEX文件
@@ -62,5 +64,7 @@ $ ./hello.pex
 使用pex我们可以生成自包含的`.pex`，把依赖和程序打包在一起，方便在其他环境中运行。facebook也开源了一个类似的项目[XAR](https://github.com/facebookincubator/xar)，以后有时间了再折腾。
 
 # 参考
+* [The Many Layers of Packaging](http://sedimental.org/the_packaging_gradient.html)
 * [pex](https://github.com/pantsbuild/pex)
 * [Packaging a Simple Python Script with PEX](https://idle.run/simple-pex)
+* [HN上关于XAR的讨论](https://news.ycombinator.com/item?id=17524086)
