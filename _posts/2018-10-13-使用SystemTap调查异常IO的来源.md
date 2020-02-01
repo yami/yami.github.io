@@ -4,7 +4,7 @@
 
 iostat的部分输出如下：
 
-![iostat output](/assets/images/2018-10-13-iostat.png){:height="294px" width="919px"}
+    ![iostat output](/assets/images/2018-10-13-iostat.png){:height="294px" width="919px"}
 
 可以看到磁盘写QPS高，但是却没有写入任何数据。现在我们需要定位出到底是哪个进程的哪部分代码造成了这个问题。
 # 查看write、pwrite调用情况
